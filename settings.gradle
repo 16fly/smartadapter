@@ -1,0 +1,3 @@
+rootProject.name='smartadapter'
+include ':app'
+include ':smart_adapter_lib'
