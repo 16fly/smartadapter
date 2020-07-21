@@ -25,7 +25,7 @@ dependencies {
 }
 ```
 
-## 三、使用方法
+## 三、使用方法,具体详细的使用可以参考Demo
 ### 1.单条目
 ```
  public class DataAdapter extends CommonAdapter<String> {
