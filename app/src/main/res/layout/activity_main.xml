@@ -25,12 +25,12 @@
         android:id="@+id/btn4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="添加头"/>
+        android:text="添加头和添加脚"/>
 
     <Button
         android:id="@+id/btn5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="测试"/>
+        android:text="列表嵌套"/>
 
 </LinearLayout>

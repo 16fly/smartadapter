@@ -17,37 +17,39 @@ import com.smart.adapter.wrapper.HeaderAndFooterWrapper;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 添加头和脚
+ */
 public class Main5Activity extends AppCompatActivity {
 
-    private RecyclerView rv;
-    private List<String> strList = new ArrayList<>();
+    private RecyclerView mRecyclerView;
+    private List<String> mStrList = new ArrayList<>();
     private LinearLayout mLayoutContainer;
     private TopWrapper mTopWrapper;
-    private RecyclerView mRv2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main5);
 
-        mLayoutContainer = (LinearLayout) findViewById(R.id.recyclerview_container);
-        rv = new RecyclerView(this);
-        mLayoutContainer.addView(rv);
+        mLayoutContainer = findViewById(R.id.recyclerview_container);
+        mRecyclerView = new RecyclerView(this);
+        mLayoutContainer.addView(mRecyclerView);
 
 
         for (int i = 0; i < 20; i++) {
-            strList.add("我是section" + i);
+            mStrList.add("我是section" + i);
         }
 
         SectionRVAdapter adapter = new SectionRVAdapter(this);
-        adapter.addSection(new DataSection(this, "我是Section1", strList));
-        adapter.addSection(new DataSection(this, "我是Section2", strList));
-        adapter.addSection(new DataSection(this, "我是Section3", strList));
+        adapter.addSection(new DataSection(this, "我是Section1", mStrList));
+        adapter.addSection(new DataSection(this, "我是Section2", mStrList));
+        adapter.addSection(new DataSection(this, "我是Section3", mStrList));
 
         mTopWrapper = new TopWrapper(adapter);
 
-        rv.setLayoutManager(new LinearLayoutManager(this));
-        rv.setAdapter(mTopWrapper);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerView.setAdapter(mTopWrapper);
     }
 
     //HeaderAndFooterWrapper  是头的父类

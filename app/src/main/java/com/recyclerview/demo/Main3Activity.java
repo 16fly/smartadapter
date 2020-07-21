@@ -16,36 +16,39 @@ import com.smart.adapter.base.ViewHolder;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 普通的多条目
+ */
 public class Main3Activity extends AppCompatActivity {
-    private RecyclerView rv;
+    private RecyclerView mRecyclerView;
 
-    private List<User> userList = new ArrayList<>();
+    private List<User> mUserList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
 
-        rv = (RecyclerView) findViewById(R.id.rv);
-        userList.add(new User("张三1", 0));
-        userList.add(new User("张三2", 0));
-        userList.add(new User("张三3", 1));
-        userList.add(new User("张三4", 0));
-        userList.add(new User("张三5", 0));
-        userList.add(new User("张三6", 1));
-        userList.add(new User("张三7", 0));
-        userList.add(new User("张三8", 0));
-        userList.add(new User("张三9", 1));
-        userList.add(new User("张三10", 1));
-        userList.add(new User("张三11", 0));
+        mRecyclerView = findViewById(R.id.recycler_view);
+        mUserList.add(new User("张三1", 0));
+        mUserList.add(new User("张三2", 0));
+        mUserList.add(new User("张三3", 1));
+        mUserList.add(new User("张三4", 0));
+        mUserList.add(new User("张三5", 0));
+        mUserList.add(new User("张三6", 1));
+        mUserList.add(new User("张三7", 0));
+        mUserList.add(new User("张三8", 0));
+        mUserList.add(new User("张三9", 1));
+        mUserList.add(new User("张三10", 1));
+        mUserList.add(new User("张三11", 0));
 
-        userList.add(new User("张三12", 2));
-        userList.add(new User("张三13", 0));
-        userList.add(new User("张三14", 2));
+        mUserList.add(new User("张三12", 2));
+        mUserList.add(new User("张三13", 0));
+        mUserList.add(new User("张三14", 2));
 
-        rv.setLayoutManager(new LinearLayoutManager(this));
-        UserAdapter adapter = new UserAdapter(this, userList);
-        rv.setAdapter(adapter);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        UserAdapter adapter = new UserAdapter(this, mUserList);
+        mRecyclerView.setAdapter(adapter);
     }
 
     //MultiItemTypeAdapter  多条目Adapter的父类

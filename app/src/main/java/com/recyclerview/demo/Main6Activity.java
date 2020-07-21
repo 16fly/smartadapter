@@ -16,31 +16,34 @@ import com.smart.adapter.section.StatelessSection;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 列表嵌套
+ */
 public class Main6Activity extends AppCompatActivity {
 
-    private RecyclerView rv;
-    private List<String> strList = new ArrayList<>();
-    private List<String> normalList = new ArrayList<>();
+    private RecyclerView mRecyclerView;
+    private List<String> mStrList = new ArrayList<>();
+    private List<String> mNormalList = new ArrayList<>();
     private DataAdapter mDataAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main6);
-        rv = (RecyclerView) findViewById(R.id.rv);
-        rv.setLayoutManager(new LinearLayoutManager(this));
-
-        for (int i = 0; i < 5; i++) {
-            strList.add("我是section" + i);
-        }
+        mRecyclerView = findViewById(R.id.rv);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         for (int i = 0; i < 3; i++) {
-            normalList.add("头" + i);
+            mNormalList.add("标题" + i);
+        }
+
+        for (int i = 0; i < 5; i++) {
+            mStrList.add("我是section" + i);
         }
 
         mDataAdapter = new DataAdapter(this);
-        mDataAdapter.addDataAll(normalList);
-        rv.setAdapter(mDataAdapter);
+        mDataAdapter.addDataAll(mNormalList);
+        mRecyclerView.setAdapter(mDataAdapter);
     }
 
     //CommonAdapter  是普通单一条目的父类
@@ -60,9 +63,9 @@ public class Main6Activity extends AppCompatActivity {
             recyclerView.requestFocus(); //设置焦点不需要
 
             SectionRVAdapter adapter = new SectionRVAdapter(mContext);
-            adapter.addSection(new DataSection(mContext, "我是Section1", strList));
-            adapter.addSection(new DataSection(mContext, "我是Section2", strList));
-            adapter.addSection(new DataSection(mContext, "我是Section3", strList));
+            adapter.addSection(new DataSection(mContext, "我是Section1", mStrList));
+            adapter.addSection(new DataSection(mContext, "我是Section2", mStrList));
+            adapter.addSection(new DataSection(mContext, "我是Section3", mStrList));
 
             recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
             recyclerView.setAdapter(adapter);

@@ -15,28 +15,32 @@ import com.smart.adapter.section.StatelessSection;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * 标准的一个组对应一个列表
+ */
 public class Main4Activity extends AppCompatActivity {
-    private RecyclerView rv;
-    private List<String> strList = new ArrayList<>();
+    private RecyclerView mRecyclerView;
+    private List<String> mStrList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main4);
-        rv = (RecyclerView) findViewById(R.id.rv);
-        rv.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerView = findViewById(R.id.recycler_view);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         for (int i = 0; i < 20; i++) {
-            strList.add("我是section" + i);
+            mStrList.add("我是组员" + i);
         }
 
         SectionRVAdapter adapter = new SectionRVAdapter(this);
-        adapter.addSection(new DataSection(this, "我是Section1", strList));
-        adapter.addSection(new DataSection(this, "我是Section2", strList));
-        adapter.addSection(new DataSection(this, "我是Section3", strList));
+        adapter.addSection(new DataSection(this, "我是Section1", mStrList));
+        adapter.addSection(new DataSection(this, "我是Section2", mStrList));
+        adapter.addSection(new DataSection(this, "我是Section3", mStrList));
 
-        rv.setLayoutManager(new LinearLayoutManager(this));
-        rv.setAdapter(adapter);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerView.setAdapter(adapter);
     }
 
     //StatelessSection  添加section的父类

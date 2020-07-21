@@ -15,25 +15,28 @@ import com.smart.adapter.base.ViewHolder;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 普通的单条目
+ */
 public class Main2Activity extends AppCompatActivity {
-    private RecyclerView rv;
+    private RecyclerView mRecyclerView;
 
-    private List<String> strList = new ArrayList<>();
+    private List<String> mStrList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        rv = (RecyclerView) findViewById(R.id.rv);
+        mRecyclerView = findViewById(R.id.recycler_view);
 
         for (int i = 0; i < 20; i++) {
-            strList.add("我是普通的条目" + i);
+            mStrList.add("我是普通的条目" + i);
         }
-        rv.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         DataAdapter adapter = new DataAdapter(this);
-        adapter.addDataAll(strList);
-        rv.setAdapter(adapter);
+        adapter.addDataAll(mStrList);
+        mRecyclerView.setAdapter(adapter);
 
 
         adapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
